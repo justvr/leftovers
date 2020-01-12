@@ -1,28 +1,72 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="inspire">
+    <!-- menubar -->
+    <v-navigation-drawer v-model="drawer" app right class="pa-3">
+      <h2>Why?</h2>
+      <p>
+        cause I keep forgeting how to prepare dishes I like ¯\_(ツ)_/¯
+      </p>
+    </v-navigation-drawer>
+    <v-app-bar app color="cyan" dark bottom>
+      <Sheet :ingredients="ingredients" @ingredient-added="snackbar = true" />
+      <v-spacer />
+      <v-toolbar-title>
+        <h1>Leftovers</h1>
+      </v-toolbar-title>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    </v-app-bar>
+    <!--/ menubar -->
+
+    <!-- main content -->
+    <v-content>
+      <v-container fluid>
+        <v-row>
+          <v-col cols="12" class="col-sm-6">
+            <h2 class="display-1 my-4">
+              what do you have in the fridge?
+            </h2>
+            <Search @send-ingredients="getIngredients" />
+          </v-col>
+          <v-col cols="12" class="col-sm-6">
+            <Recipe :ingredients="ingredients" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+    <!--/ main content -->
+
+    <!-- snackbar -->
+    <v-snackbar v-model="snackbar" color="success" absolute top right>
+      <span>Amazing! I'll have more inspiration next time</span>
+      <v-btn text @click="snackbar = false">
+        Close
+      </v-btn>
+    </v-snackbar>
+    <!--/ snackbar -->
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Search from './components/search'
+import Recipe from './components/recipe'
+import Sheet from './components/sheet'
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    Search,
+    Recipe,
+    Sheet
+  },
+  data: () => ({
+    drawer: null,
+    ingredients: [],
+    snackbar: false,
+    showSheet: false
+  }),
+  methods: {
+    getIngredients(payload) {
+      this.ingredients = payload
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

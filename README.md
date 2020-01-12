@@ -1,4 +1,4 @@
-# cuisine-mixer
+# Leftovers
 
 ## Project setup
 ```
