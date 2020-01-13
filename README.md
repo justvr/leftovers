@@ -1,4 +1,8 @@
 # Leftovers
+> You don't know what to prepare with that leftover egg plant from yesterday's feast? Search for some suggestions https://leftovers-mixer.herokuapp.com/
+
+## Contribute to the recipes?
+Contact the owner of the project
 
 ## Project setup
 ```
