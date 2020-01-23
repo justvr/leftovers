@@ -4,11 +4,11 @@
     <v-navigation-drawer v-model="drawer" app right class="pa-3">
       <h2>Why?</h2>
       <p>
-        cause I keep forgeting how to prepare dishes I like ¯\_(ツ)_/¯
+        cause I need inspiration to use all the rotten food i have in the house
+        ¯\_(ツ)_/¯
       </p>
     </v-navigation-drawer>
     <v-app-bar app color="cyan" dark bottom>
-      <Sheet :ingredients="ingredients" @ingredient-added="snackbar = true" />
       <v-spacer />
       <v-toolbar-title>
         <h1>Leftovers</h1>
@@ -49,19 +49,16 @@
 <script>
 import Search from './components/search'
 import Recipe from './components/recipe'
-import Sheet from './components/sheet'
 
 export default {
   components: {
     Search,
-    Recipe,
-    Sheet
+    Recipe
   },
   data: () => ({
     drawer: null,
     ingredients: [],
-    snackbar: false,
-    showSheet: false
+    snackbar: false
   }),
   methods: {
     getIngredients(payload) {
