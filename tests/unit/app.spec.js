@@ -1,9 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
-import Recipe from '@/App.vue'
+import App from '@/App.vue'
 
-describe('Recipe.vue', () => {
+describe('App.vue', () => {
   it('renders content of a recipe', () => {
-    const wrapper = shallowMount(Recipe)
+    const wrapper = shallowMount(App)
     expect(wrapper.html()).toContain('<h1>Leftovers</h1>')
   })
 })
