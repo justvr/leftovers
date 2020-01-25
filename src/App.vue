@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import Search from '@/components/Search'
-import Recipe from '@/components/Recipe'
+import Search from './components/Search'
+import Recipe from './components/Recipe'
 
 export default {
   components: {
