@@ -1,4 +1,7 @@
 module.exports = {
   preset: '@vue/cli-plugin-unit-jest',
-  moduleDirectories: ['.', 'src', 'node_modules', '<rootDir>/src']
+  moduleDirectories: ['.', 'node_modules', '<rootDir>/src'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1'
+  }
 }
