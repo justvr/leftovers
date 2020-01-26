@@ -1,5 +1,7 @@
 # Leftovers
-> You don't know what to prepare with that leftover egg plant from yesterday's feast? Search for some suggestions https://leftovers-mixer.herokuapp.com/
+> A project using Vue.js, Vuetify and Jest for testing
+
+[![Build Status](https://travis-ci.org/justvr/leftovers.svg?branch=master)](https://travis-ci.org/justvr/leftovers)
 
 ## Contribute to the recipes?
 Contact the author of the project
