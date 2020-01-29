@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/justvr/leftovers.svg?branch=master)](https://travis-ci.org/justvr/leftovers)
 
 ## Contribute to the recipes?
-Contact the author of the project
+Contact the owner of the project
 
 ## Project setup
 ```
