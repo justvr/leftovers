@@ -1,5 +1,5 @@
 # Leftovers
-> A project built with [Vue CLI](https://cli.vuejs.org/) based on [Vue.js](https://vuejs.org/) and [Vuetify](https://vuetifyjs.com/en/). Testing with [Jest](https://jestjs.io/docs/en/getting-started), deploying with [Travis CI](https://travis-ci.org/) on [Heroku](https://dashboard.heroku.com/apps)
+> A project built with Vue CLI based on Vue.js and Vuetify. Testing with Jest, deploying with Travis CI on Heroku
 
 [![Build Status](https://travis-ci.org/justvr/leftovers.svg?branch=master)](https://travis-ci.org/justvr/leftovers)
 
