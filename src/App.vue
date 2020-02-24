@@ -1,21 +1,6 @@
 <template>
   <v-app id="inspire">
-    <!-- menubar -->
-    <v-navigation-drawer v-model="drawer" app right class="pa-3">
-      <h2>Why?</h2>
-      <p>
-        cause I need inspiration to use all the rotten food i have in the house
-        ¯\_(ツ)_/¯
-      </p>
-    </v-navigation-drawer>
-    <v-app-bar app color="cyan" dark bottom>
-      <v-spacer />
-      <v-toolbar-title>
-        <h1>Leftovers</h1>
-      </v-toolbar-title>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-    </v-app-bar>
-    <!--/ menubar -->
+    <TheHeader />
 
     <!-- main content -->
     <v-content>
@@ -34,31 +19,23 @@
       </v-container>
     </v-content>
     <!--/ main content -->
-
-    <!-- snackbar -->
-    <v-snackbar v-model="snackbar" color="success" absolute top right>
-      <span>Amazing! I'll have more inspiration next time</span>
-      <v-btn text @click="snackbar = false">
-        Close
-      </v-btn>
-    </v-snackbar>
-    <!--/ snackbar -->
   </v-app>
 </template>
 
 <script>
 import Search from '@/components/Search'
 import Recipe from '@/components/Recipe'
+import TheHeader from '@/components/TheHeader'
 
 export default {
   components: {
     Search,
-    Recipe
+    Recipe,
+    TheHeader
   },
   data: () => ({
     drawer: null,
-    ingredients: [],
-    snackbar: false
+    ingredients: []
   }),
   methods: {
     getIngredients(payload) {
