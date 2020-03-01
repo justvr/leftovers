@@ -13,23 +13,26 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+yarn build
 ```
 
-### Run your tests
+### Run unit tests
+* See [vuetify unit testing](https://vuetifyjs.com/en/getting-started/unit-testing) &
+* [vue-test-utils](https://vue-test-utils.vuejs.org/guides/#common-tips) &
+* [v2 unit testing cookbook](https://vuejs.org/v2/cookbook/unit-testing-vue-components.html)
 ```
-yarn run test:unit
+yarn test:unit
 ```
 
 ### Lints and fixes files
 ```
-yarn run lint
+yarn lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://cli.vuejs.org/config/)
