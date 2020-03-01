@@ -10,17 +10,20 @@
     <v-app-bar app color="cyan" dark bottom>
       <v-spacer />
       <v-toolbar-title>
-        <h1>Leftovers</h1>
+        <h1>{{ title }}</h1>
       </v-toolbar-title>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
     </v-app-bar>
   </div>
 </template>
 <script>
 export default {
   name: 'TheHeader',
-  data: () => ({
-    drawer: null
-  })
+  data() {
+    return {
+      title: 'Leftovers',
+      drawer: null
+    }
+  }
 }
 </script>

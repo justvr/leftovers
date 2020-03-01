@@ -1,29 +1,31 @@
-import { shallowMount } from '@vue/test-utils'
-import TheHeader from '@/components/TheHeader.vue'
+import Vuetify from 'vuetify'
 
-describe('TheHeader.vue test', () => {
-  it('renders content of a recipe', () => {
-    // render the component
-    const wrapper = shallowMount(TheHeader, {
-      data() {
-        return {
-          drawer: true
-        }
-      }
-    })
+import TheHeader from '@/components/TheHeader'
 
-    // check the name of the component
-    expect(wrapper.name()).toMatch('TheHeader')
+import { mount } from '@vue/test-utils'
 
-    // check the static content is set
-    expect(wrapper.html()).toContain('<h1>Leftovers</h1>')
-    expect(wrapper.html()).toContain('<h2>Why?</h2>')
+describe('TheHeader.vue', () => {
+  let vuetify = new Vuetify()
+  const wrapper = mount(TheHeader, {
+    vuetify
+  })
 
-    // see if the drawer is there
-    // expect(wrapper.contains('nav')).toBe(true)
+  it('has h1 with content Leftovers', () => {
+    expect(wrapper.contains('h1')).toBe(true)
+    expect(wrapper.vm.title).toMatch('Leftovers')
+  })
 
-    // update the `drawer` and assert nav is no longer rendered
+  it('has h2', () => {
+    expect(wrapper.contains('h2')).toBe(true)
+  })
+
+  it('checks if the drawer is opening', () => {
+    wrapper.setData({ drawer: true })
+    expect(wrapper.contains('.v-navigation-drawer--open')).toBe(true)
+  })
+
+  it('checks if the drawer is closing', () => {
     wrapper.setData({ drawer: false })
-    expect(wrapper.contains('nav')).toBe(false)
+    expect(wrapper.contains('.v-navigation-drawer--open')).toBe(false)
   })
 })
