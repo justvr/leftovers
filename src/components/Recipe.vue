@@ -5,7 +5,7 @@
       :key="`${recipe}-${index}`"
       flat
       class="mb-4"
-      :class="{ 'elevation-6': showRecipe(recipe) }"
+      :class="{ 'elevation-6': show(recipe) }"
     >
       <v-card-title>
         <h3 class="subtitle-2 mb-0">Mixing Food #{{ index }}</h3>
@@ -60,7 +60,7 @@ export default {
     })
   },
   methods: {
-    showRecipe(recipe) {
+    show(recipe) {
       if (this.ingredients.length === 0) return
       return this.ingredients.some(ingredient =>
         recipe.ingredients.includes(ingredient)
