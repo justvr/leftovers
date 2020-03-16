@@ -8,10 +8,16 @@
           <h2 class="display-1 my-4">
             What do you have in the fridge?
           </h2>
-          <Search @send-ingredients="get" />
+          <Search
+            @send-ingredients="getIngredients"
+            @duplicate-ingredient="getDuplicateIngredient"
+          />
         </v-col>
         <v-col cols="12" class="col-sm-6">
-          <Recipe :ingredients="ingredients" />
+          <Recipe
+            :ingredients="ingredients"
+            :duplicate-ingredient="duplicateIngredient"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -31,11 +37,15 @@ export default {
   },
   data: () => ({
     drawer: null,
-    ingredients: []
+    ingredients: [],
+    duplicateIngredient: ''
   }),
   methods: {
-    get(ingredients) {
+    getIngredients(ingredients) {
       this.ingredients = ingredients
+    },
+    getDuplicateIngredient(ingredient) {
+      this.duplicateIngredient = ingredient
     }
   }
 }

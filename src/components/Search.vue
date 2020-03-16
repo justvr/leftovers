@@ -1,7 +1,7 @@
 <template>
   <v-flex v-if="items[0]">
     <v-autocomplete
-      v-model="ingredients"
+      v-model="ingredient"
       :items="items[0].ingredient"
       :search-input.sync="search"
       eager
@@ -31,7 +31,7 @@ export default {
   data: () => ({
     items: [],
     search: null,
-    ingredients: null,
+    ingredient: null,
     selectedIngredients: []
   }),
   created() {
@@ -50,15 +50,15 @@ export default {
     })
   },
   methods: {
-    doublesFound() {
-      return !!this.selectedIngredients.includes(this.ingredients)
+    _findDuplicates() {
+      return !!this.selectedIngredients.includes(this.ingredient)
     },
     addIngredient() {
-      if (this.doublesFound()) {
-        alert('try adding new ingredients')
+      if (this._findDuplicates()) {
+        this.$emit('duplicate-ingredient', this.ingredient)
         return
       }
-      this.selectedIngredients.push(this.ingredients)
+      this.selectedIngredients.push(this.ingredient)
       this.$emit('send-ingredients', this.selectedIngredients)
     },
     remove(ingredient) {
