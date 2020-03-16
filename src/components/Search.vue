@@ -1,7 +1,7 @@
 <template>
   <v-flex v-if="items[0]">
     <v-autocomplete
-      v-model="select"
+      v-model="ingredients"
       :items="items[0].ingredient"
       :search-input.sync="search"
       eager
@@ -13,11 +13,11 @@
       @input="addIngredient"
     />
     <v-chip
-      v-for="(ingredient, index) in selectedItems"
+      v-for="(ingredient, index) in selectedIngredients"
       :key="index"
       close
       class="ma-1"
-      @click:close="removeIngredient(ingredient)"
+      @click:close="remove(ingredient)"
     >
       {{ ingredient }}
     </v-chip>
@@ -31,9 +31,8 @@ export default {
   data: () => ({
     items: [],
     search: null,
-    select: null,
-    selectedItems: [],
-    description: ''
+    ingredients: null,
+    selectedIngredients: []
   }),
   created() {
     // fetching ingredients from db
@@ -51,14 +50,22 @@ export default {
     })
   },
   methods: {
-    addIngredient() {
-      this.selectedItems.push(this.select)
-      // leaving only uniq values
-      this.selectedItems = [...new Set(this.selectedItems)]
-      this.$emit('send-ingredients', this.selectedItems)
+    doublesFound() {
+      return !!this.selectedIngredients.includes(this.ingredients)
     },
-    removeIngredient(ingredient) {
-      this.selectedItems.splice(this.selectedItems.indexOf(ingredient), 1)
+    addIngredient() {
+      if (this.doublesFound()) {
+        alert('try adding new ingredients')
+        return
+      }
+      this.selectedIngredients.push(this.ingredients)
+      this.$emit('send-ingredients', this.selectedIngredients)
+    },
+    remove(ingredient) {
+      this.selectedIngredients.splice(
+        this.selectedIngredients.indexOf(ingredient),
+        1
+      )
     }
   }
 }

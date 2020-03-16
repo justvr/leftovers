@@ -1,22 +1,20 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
     <TheHeader />
 
-    <!-- main content -->
     <v-container fluid>
       <v-row>
-        <v-col cols="12" class="col-sm-6">
+        <v-col cols="12" class="col-sm-4">
           <h2 class="display-1 my-4">
-            what do you have in the fridge?
+            What do you have in the fridge?
           </h2>
-          <Search @send-ingredients="getIngredients" />
+          <Search @send-ingredients="get" />
         </v-col>
         <v-col cols="12" class="col-sm-6">
           <Recipe :ingredients="ingredients" />
         </v-col>
       </v-row>
     </v-container>
-    <!--/ main content -->
   </v-app>
 </template>
 
@@ -36,8 +34,8 @@ export default {
     ingredients: []
   }),
   methods: {
-    getIngredients(payload) {
-      this.ingredients = payload
+    get(ingredients) {
+      this.ingredients = ingredients
     }
   }
 }

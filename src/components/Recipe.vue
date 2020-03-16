@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- recipes -->
     <v-card
       v-for="(recipe, index) in recipes"
       :key="`${recipe}-${index}`"
@@ -24,7 +23,6 @@
         {{ ingredient }}
       </v-chip>
     </v-card>
-    <!--/ recipes -->
   </div>
 </template>
 <script>
@@ -57,7 +55,9 @@ export default {
   methods: {
     showRecipe(recipe) {
       if (this.ingredients.length === 0) return
-      return this.ingredients.some(ai => recipe.ingredients.includes(ai))
+      return this.ingredients.some(ingredient =>
+        recipe.ingredients.includes(ingredient)
+      )
     }
   }
 }
