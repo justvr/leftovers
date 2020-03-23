@@ -13,7 +13,7 @@
             @duplicate-ingredient="getDuplicateIngredient"
           />
         </v-col>
-        <v-col cols="12" class="col-sm-6">
+        <v-col cols="12" class="col-sm-6 pb-12">
           <Recipe
             :ingredients="ingredients"
             :duplicate-ingredient="duplicateIngredient"
