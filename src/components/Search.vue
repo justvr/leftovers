@@ -1,7 +1,7 @@
 <template>
   <v-flex v-if="items[0]">
     <v-autocomplete
-      v-model="ingredient"
+      v-model="search"
       :items="items[0].ingredient"
       :search-input.sync="search"
       eager
@@ -17,7 +17,7 @@
       :key="index"
       close
       class="ma-1"
-      @click:close="remove(ingredient)"
+      @click:close="remove(search)"
     >
       {{ ingredient }}
     </v-chip>
@@ -31,7 +31,6 @@ export default {
   data: () => ({
     items: [],
     search: null,
-    ingredient: null,
     selectedIngredients: []
   }),
   created() {
@@ -50,15 +49,18 @@ export default {
     })
   },
   methods: {
-    _findDuplicates() {
-      return !!this.selectedIngredients.includes(this.ingredient)
+    _findDuplicate() {
+      return !!this.selectedIngredients.includes(this.search)
+    },
+    _updateDuplicateClass(ingredient) {
+      this.$emit('duplicate-ingredient', ingredient)
     },
     addIngredient() {
-      if (this._findDuplicates()) {
-        this.$emit('duplicate-ingredient', this.ingredient)
+      if (this._findDuplicate()) {
+        this._updateDuplicateClass(this.search)
         return
       }
-      this.selectedIngredients.push(this.ingredient)
+      this.selectedIngredients.push(this.search)
       this.$emit('send-ingredients', this.selectedIngredients)
     },
     remove(ingredient) {
@@ -66,6 +68,7 @@ export default {
         this.selectedIngredients.indexOf(ingredient),
         1
       )
+      this._updateDuplicateClass(null)
     }
   }
 }

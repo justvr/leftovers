@@ -71,12 +71,12 @@ export default {
 </script>
 <style scoped>
 .highlightDuplicate {
-  animation-name: haveitmate;
+  animation-name: haveitalready;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
   background-color: #00bcd4 !important;
 }
-@keyframes haveitmate {
+@keyframes haveitalready {
   0% {
     background-color: #00bcd4;
   }

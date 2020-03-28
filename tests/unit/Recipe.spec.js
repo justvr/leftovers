@@ -20,8 +20,7 @@ describe('Recipe.vue', () => {
           {
             description:
               'Fry half of onion, some carrots and garlic in a pot. Add half cup with lentils and cover with water. You like it 1/3 more than just to cover the ingredients with water. Fry a sausage',
-            ingredients: ['lentils', 'onion', 'garlic', 'carrot', 'sausage'],
-            id: '7zwfsgSR02JxtNRkcwx1'
+            ingredients: ['lentils', 'onion', 'garlic', 'carrot', 'sausage']
           }
         ]
       }
@@ -30,5 +29,8 @@ describe('Recipe.vue', () => {
 
   it('has h1 with content Leftovers', () => {
     expect(wrapper.find('h3').text()).toEqual('Mixing Food #0')
+    expect(wrapper.find('.v-card__text').text()).toEqual(
+      'Fry half of onion, some carrots and garlic in a pot. Add half cup with lentils and cover with water. You like it 1/3 more than just to cover the ingredients with water. Fry a sausage'
+    )
   })
 })
