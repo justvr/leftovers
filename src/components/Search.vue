@@ -1,7 +1,7 @@
 <template>
   <v-flex v-if="items[0]">
     <v-autocomplete
-      v-model="search"
+      v-model="ingredient"
       :items="items[0].ingredient"
       :search-input.sync="search"
       eager
@@ -17,7 +17,7 @@
       :key="index"
       close
       class="ma-1"
-      @click:close="remove(search)"
+      @click:close="remove(ingredient)"
     >
       {{ ingredient }}
     </v-chip>
@@ -29,6 +29,7 @@ import db from '@/fb.js'
 export default {
   name: 'Search',
   data: () => ({
+    ingredient: null,
     items: [],
     search: null,
     selectedIngredients: []
@@ -50,17 +51,17 @@ export default {
   },
   methods: {
     _findDuplicate() {
-      return !!this.selectedIngredients.includes(this.search)
+      return !!this.selectedIngredients.includes(this.ingredient)
     },
     _updateDuplicateClass(ingredient) {
       this.$emit('duplicate-ingredient', ingredient)
     },
     addIngredient() {
       if (this._findDuplicate()) {
-        this._updateDuplicateClass(this.search)
+        this._updateDuplicateClass(this.ingredient)
         return
       }
-      this.selectedIngredients.push(this.search)
+      this.selectedIngredients.push(this.ingredient)
       this.$emit('send-ingredients', this.selectedIngredients)
     },
     remove(ingredient) {
