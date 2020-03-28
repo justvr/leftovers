@@ -5,7 +5,7 @@
       :key="`${recipe}-${index}`"
       flat
       class="mb-2 pa-0 recipe"
-      :class="{ 'recipe-active': show(recipe) }"
+      :class="{ active: show(recipe) }"
     >
       <v-card-title>
         <h3 class="subtitle-2 mb-0">Mixing Food #{{ index }}</h3>
@@ -73,9 +73,7 @@ export default {
 .recipe {
   border: 1px solid #e9e9e9;
 }
-.recipe-active {
-  border: 3px solid #00bcd4;
-}
+.active,
 .recipe:hover,
 .recipe:focus {
   border: 1px solid #00bcd4;
