@@ -1,8 +1,8 @@
 <p align="center">
   <h1>Leftovers</h1>
-</p>
-<p align="center">
-  [![Build Status](https://travis-ci.org/justvr/leftovers.svg?branch=master)](https://travis-ci.org/justvr/leftovers)
+  <a href="https://travis-ci.org/github/justvr/leftovers">
+    <img src="https://travis-ci.org/justvr/leftovers.svg?branch=master" alt="Travis CI">
+  </a>
 	<a href="https://gitmoji.carloscuesta.me">
 		<img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
 			 alt="Gitmoji">
