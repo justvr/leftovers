@@ -4,8 +4,8 @@
       v-for="(recipe, index) in recipes"
       :key="`${recipe}-${index}`"
       flat
-      class="mb-4"
-      :class="{ 'elevation-6': show(recipe) }"
+      class="mb-2 pa-0 recipe"
+      :class="{ 'recipe-active': show(recipe) }"
     >
       <v-card-title>
         <h3 class="subtitle-2 mb-0">Mixing Food #{{ index }}</h3>
@@ -70,6 +70,16 @@ export default {
 }
 </script>
 <style scoped>
+.recipe {
+  border: 1px solid #e9e9e9;
+}
+.recipe-active {
+  border: 3px solid #00bcd4;
+}
+.recipe:hover,
+.recipe:focus {
+  border: 1px solid #00bcd4;
+}
 .highlightDuplicate {
   animation-name: haveitalready;
   animation-duration: 1s;
