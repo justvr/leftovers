@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node server.js",
-    "test:unit": "vue-cli-service test:unit --forceExit"
+    "test:unit": "vue-cli-service test:unit --forceExit",
+    "test:e2e": "cypress run"
   },
   "dependencies": {
     "babel-core": "^7.0.0-bridge.0",
@@ -24,6 +25,7 @@
     "@vue/cli-service": "^3.9.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.3",
+    "cypress": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-loader": "^3.0.2",
